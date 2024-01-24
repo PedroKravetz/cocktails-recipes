@@ -1,0 +1,81 @@
+<%- include("partials/header.ejs") %> <% if (locals.name) { %>
+<div class="container col-xxl-8 px-4 py-5">
+  <div class="row flex-lg-row-reverse align-items-center g-5 py-5">
+    <div class="col-10 col-sm-8 col-lg-6">
+      <img
+        src="<%= image %>"
+        class="d-block mx-lg-auto img-fluid"
+        alt="Bootstrap Themes"
+        width="700"
+        height="500"
+        loading="lazy"
+      />
+    </div>
+    <div class="col-lg-6">
+      <h1 class="display-5 fw-bold text-body-emphasis lh-1 mb-3">
+        <%= name %>
+      </h1>
+      <% ingredients.forEach(element => { %>
+      <p class="lead"><%= element %></p>
+      <% }); %>
+      <p class="lead"><%= instructions %></p>
+    </div>
+  </div>
+  <div class="b-example-divider"></div>
+</div>
+<% } else if (locals.ingredients) { %> <% ingredients.forEach(element => { %>
+<div class="container col-xxl-8 px-4 py-5">
+  <div class="row flex-lg-row-reverse align-items-center g-5 py-5">
+    <div class="col-10 col-sm-8 col-lg-6">
+      <img
+        src="<%= element.image %>"
+        class="d-block mx-lg-auto img-fluid"
+        alt="Bootstrap Themes"
+        width="700"
+        height="500"
+        loading="lazy"
+      />
+    </div>
+    <div class="col-lg-6">
+      <h1 class="display-5 fw-bold text-body-emphasis lh-1 mb-3">
+        <%= element.name %>
+      </h1>
+      <p class="lead"><%= element.description %></p>
+    </div>
+  </div>
+  <div class="b-example-divider"></div>
+</div>
+<% }) %> <% } else if (locals.drinks) { %> <% drinks.forEach(element => { %>
+<div class="container col-xxl-8 px-4 py-5">
+  <div class="row flex-lg-row-reverse align-items-center g-5 py-5">
+    <div class="col-10 col-sm-8 col-lg-6">
+      <img
+        src="<%= element.image %>"
+        class="d-block mx-lg-auto img-fluid"
+        alt="Bootstrap Themes"
+        width="700"
+        height="500"
+        loading="lazy"
+      />
+    </div>
+    <div class="col-lg-6">
+      <h1 class="display-5 fw-bold text-body-emphasis lh-1 mb-3">
+        <%= element.name %>
+      </h1>
+      <% element.ingredients.forEach(element1 => { %>
+      <p class="lead"><%= element1 %></p>
+      <% }); %>
+      <p class="lead"><%= element.instructions %></p>
+    </div>
+  </div>
+  <div class="b-example-divider"></div>
+</div>
+<% }) %> <% } else { %>
+<div class="container">
+  <div
+    class="d-flex flex-column align-items-center justify-content-center g-5 py-5"
+  >
+    <h1>No Cocktails to show</h1>
+  </div>
+</div>
+<% } %> <%- include("partials/footer.ejs") %>
